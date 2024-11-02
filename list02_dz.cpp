@@ -58,83 +58,210 @@
 //	cout << " наибольший общий делитель =" << nb << endl;
 //	return 0;
 //}
+
+
 // Задание 2
+//#include <iostream>
+//#include <cmath>
+//#include <stdio.h>
+//#include <windows.h>
+//using namespace std;
+//int main(){
+//    setlocale(LC_ALL, "Russian");
+//    int chislo,menu,count=0,mn=9,mx=0,pr = 1,s = 0,perev=0;
+//    char vibor;
+//    do {
+//        cout << "введите число от 1000 до 999999999" << endl;
+//        cin >> chislo;
+//        if (chislo < 1000 || chislo > 999999999) {
+//            cout << "введите число из указанного диапазона" << endl;
+//        }
+//    } while (chislo < 1000 || chislo > 999999999);
+//    do {
+//        cout << "выберите опцию "<< endl;
+//        cout << "[2].Выведите цифры числа, начиная с наименьшего позиционного порядка и заканчивая наибольшим." << endl;
+//        cout << "[3].Посчитайте, сколько цифр имеет число." << endl;
+//        cout << "[4].Возвращает наименьшую и наибольшую цифру числа." << endl;
+//        cout << "[5].Возвращает сумму цифр числа." << endl;
+//        cout << "[6].Вернуть произведение нечетных цифр." << endl;
+//        cout << "[7].Вычислите перевернутую версию числа." << endl;
+//        cin >> menu;
+//        switch (menu) {
+//        case 2:
+//            while (chislo > 0) {
+//                cout << chislo % 10;
+//                chislo = chislo / 10;
+//            }
+//            cout << endl;
+//            break;
+//        case 3:
+//            while (chislo > 0) {
+//                chislo = chislo / 10;
+//                count++;
+//            }
+//            cout << count << endl;
+//            break;
+//        case 4:
+//            while (chislo > 0) {
+//                if (chislo % 10 >= mx) {
+//                    mx = chislo % 10;
+//                    chislo = chislo / 10;
+//                }
+//                else if (chislo % 10 <= mn) {
+//                    mn = chislo % 10;
+//                }
+//            }
+//            cout << mn << endl;
+//            cout << mx << endl;
+//            break;
+//        case 5:
+//            while (chislo > 0) {
+//                s = s + chislo % 10;
+//                chislo = chislo / 10;
+//            }
+//        case 6:
+//            while (chislo > 0) {
+//                if ((chislo % 10) % 2 != 0) { ///////// ИСПРАВИТЬ!!!!!
+//                    pr = pr * (chislo%10);
+//                }
+//            }
+//            cout << pr << endl;
+//            break;
+//        case 7:
+//            while (chislo > 0) {
+//                perev = perev * 10 + chislo % 10;
+//                chislo /= 10;
+//            }
+//            cout << perev << endl;
+//            break;
+//        default:
+//            cout << "Нет такой опции. Выберите ещё раз" << endl;
+//            continue;
+//        }
+//        cout << "Хотите продолжить [Y|N]?" << endl;
+//        cin >> vibor;
+//        if (vibor == 'Y') {
+//            do {
+//                cout << "введите число от 1000 до 999999999" << endl;
+//                cin >> chislo;
+//            } while (chislo < 1000 || chislo > 999999999);
+//        }
+//    }while (vibor == 'Y');
+//    return 0;
+//}
+
+
+ //Задание 3
 #include <iostream>
 #include <cmath>
-//[1]. Введите число в диапазоне от 1000 до 999999999. Если введенное число
-//находится за пределами этого диапазона, пользователю необходимо будет
-//предложить ввести число еще раз.
-//[2].Выведите цифры числа, начиная с наименьшего позиционного порядка
-//и заканчивая наибольшим.
-//Пример: если у вас есть число 154695 в качестве входных данных, вы
-//должны напечатать цифры 5, 9, 6, 4, 5, 1.
-//[3].Посчитайте, сколько цифр имеет число.
-//Пример.Если в качестве входных данных указано число 154695, результат
-//будет состоять из 6 цифр.
-//[4].Возвращает наименьшую и наибольшую цифру числа.
-//Пример : если в качестве входных данных указано число 154695, результат
-//будет иметь наибольшее число = 9; наименьшее число = 1.
-//[5].Возвращает сумму цифр числа.
-//Пример: если вы ввели число 154695, результат будет 1 + 5 + 4 + 6 + 9 + 5
-//= 30.
-//[6].Вернуть произведение нечетных цифр.
-//Пример : если вы ввели число 154695, результат будет 1 * 5 * 9 * 5 = 225.
-//[7].Вычислите перевернутую версию числа.
+#include <stdio.h>
+#include <windows.h>
 using namespace std;
-int main() {
-	setlocale(LC_ALL, "Russian");
-	int a,choice,k,s,MAX=0,MIN=9,obrat=0,b;
-
-	do {
-		cout << "введите число от 1000 до 999999999" << endl;
-		cin >> a;
-		if (a < 1000 && a > 999999999) {
-			cout << "введите число ещё раз" << endl;
-			cin >> a;
-		}
-		while (a > 1000 && a < 999999999) {
-			cout << "Menu" << endl;
-			cout << "[2] Выведите цифры числа, начиная с наименьшего позиционного порядка и заканчивая наибольшим" << endl;
-			cout << "[3] Посчитайте, сколько цифр имеет число" << endl;
-			cout << "[4] Возвращает наименьшую и наибольшую цифру числа" << endl;
-			cout << "[5] Возвращает сумму цифр числа" << endl;
-			cout << "[6] Вернуть произведение нечетных цифр" << endl;
-			cout << "[7] Вычислите перевернутую версию числа" << endl;
-			switch (choice) {
-			case 2:
-				b = a % 10;
-				while (a > 0) {
-					cout << b << endl;
-					a /= 10;
-					b = a % 10;
-				}
-				cout << endl;
-				break;
-			case 3:
-				while (a > 0) {
-					a /= 10;
-					k++;
-				}
-				cout << endl;
-				break;
-			case 4:
-				b = a % 10;
-				while (a > 0) {
-					if (b > MAX) {
-						MAX = b;
-					}
-					else if (b < MIN) {
-						MIN = b;
-					}
-					a /= 10;
-					b = a % 10;
-				}
-				cout << MAX << endl;
-				cout << MIN << endl;
-				break;
-			case 5:
-
-
-		}
-	return 0;
+int fact(int n){
+    int result = 1;
+    for (int i = 2; i <= n; i++) {
+        result = result * i;
+    }
+    return result;
 }
+int main() {
+    double x;
+    char choice;
+    int n, menu;
+    double ln,e = 1,sin,cos = 1,rf= 1;
+    setlocale(LC_ALL, "Russian");
+    do {
+        cout << "введите значение x, где 0<= x < 1" << endl;
+        cin >> x;
+        while (x < 0 || x >= 1) {
+            cout << "попробуйте ещё раз" << endl;
+            cin >> x;
+        }
+        cout << "введите кол-во членов n от 2 до 20" << endl;
+        cin >> n;
+        while (n < 2 || n > 20) {
+            cout << "попробуйте ещё раз" << endl;
+            cin >> n;
+        }
+        cout << "выберите опцию\n" << endl;
+        cout << "[2] Рассчитать Ряд Маклорена для показательной функции\n" << endl;
+        cout << "[3] Рассчитать Ряд Маклорена для функции натурального логарифма\n" << endl;
+        cout << "[4] Рассчитать Ряд Маклорена для синусоидальной функции\n" << endl;
+        cout << "[5] Рассчитать Ряд Маклорена для функции косинуса\n" << endl;
+        cout << "[6] Рассчитать Ряд Маклорена для рациональной функции:\n" << endl;
+        cin >> menu;
+        switch (menu) {
+        case 2:
+            for (int i = 1; i <= n; i++) {
+                e = e + pow(x, i) / fact(i);
+            }
+            cout << e << endl;
+            break;
+        case 3:
+            ln = x;
+            for (int i = 2; i <= n; i++) {
+                if (i % 2 == 0) {
+                    ln = ln - pow(x, i) / i;
+                }
+                else {
+                    ln = ln + pow(x, i) / i;
+                }
+            }
+            cout << ln << endl;
+            break;
+        case 4:
+            sin = x;
+            for (int i = 3; i <= n; i + 2) {
+                sin = sin - ((i % 2 != 0 ? 1 : -1) * pow(x, i) / fact(i));
+            }
+            cout << sin << endl;
+            break;
+        case 5:
+            for (int i = 2; i <= n; i + 2) {
+                cos = cos - ((i % 2 == 0 ? 1 : -1) * pow(x, i) / fact(i));
+            }
+            cout << cos << endl;
+            break;
+        case 6:
+            for (int i = 2; i <= n; i++) {
+                rf = rf + i * pow(x, i - 1);
+            }
+            cout << rf << endl;
+            break;
+        default:
+            cout << "Нет такой опции.Выберите ещё раз" << endl;
+            continue;
+        }
+        cout << "Хотите продолжить[Y|N)?" << endl;
+        cin >> choice;
+    } while (choice == 'Y');
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
